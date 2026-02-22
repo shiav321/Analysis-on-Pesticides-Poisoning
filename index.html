@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pesticide Poisoning Diagnosis | Shiva Keshava</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#030f08;--orange:#f97316;--yellow:#fbbf24;--text:#fff8ee;--muted:#7a6a50;--card:rgba(249,115,22,0.05);--border:rgba(249,115,22,0.15);}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;}
+  .back-link{position:fixed;top:24px;left:24px;z-index:100;color:var(--muted);text-decoration:none;font-size:0.85rem;display:flex;align-items:center;gap:8px;background:rgba(0,0,0,0.5);padding:8px 16px;border-radius:100px;border:1px solid rgba(255,255,255,0.08);transition:all 0.3s;}
+  .back-link:hover{color:var(--orange);}
+  .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 24px;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,0.07),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(249,115,22,0.1);border:1px solid var(--border);padding:6px 18px;border-radius:100px;font-size:0.78rem;color:var(--orange);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:28px;}
+  h1{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;line-height:1.05;letter-spacing:-2px;}
+  .accent{background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .subtitle{color:var(--muted);font-size:1.05rem;line-height:1.7;max-width:580px;margin:20px auto 0;}
+  .metrics{display:flex;justify-content:center;gap:48px;margin-top:60px;flex-wrap:wrap;}
+  .metric-val{font-family:'Syne',sans-serif;font-size:2.8rem;font-weight:800;background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .metric-lbl{font-size:0.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;}
+  .cta-row{display:flex;justify-content:center;gap:14px;margin-top:48px;flex-wrap:wrap;}
+  .btn-p{background:linear-gradient(135deg,var(--orange),var(--yellow));color:#000;padding:13px 30px;border-radius:8px;font-weight:700;font-size:0.9rem;text-decoration:none;transition:all 0.3s;}
+  .btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(249,115,22,0.4);}
+  .btn-o{border:1px solid var(--border);color:var(--text);padding:13px 30px;border-radius:8px;font-size:0.9rem;text-decoration:none;transition:all 0.3s;}
+  .btn-o:hover{border-color:var(--orange);color:var(--orange);}
+  section{padding:80px 60px;}
+  @media(max-width:768px){section{padding:60px 24px;}}
+  .sec-label{font-size:0.72rem;color:var(--orange);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:10px;}
+  .sec-title{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;letter-spacing:-1px;margin-bottom:40px;}
+  .impact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+  .impact-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;border-top:3px solid var(--orange);}
+  .impact-icon{font-size:2rem;margin-bottom:14px;}
+  .impact-title{font-weight:700;margin-bottom:8px;}
+  .impact-desc{color:var(--muted);font-size:0.85rem;line-height:1.6;}
+  .algo-box{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:40px;max-width:700px;}
+  .algo-title{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:16px;color:var(--orange);}
+  .algo-parts{display:flex;flex-direction:column;gap:14px;}
+  .algo-part{display:flex;align-items:flex-start;gap:14px;}
+  .algo-dot{width:8px;height:8px;border-radius:50%;background:var(--orange);flex-shrink:0;margin-top:6px;}
+  .algo-part-text{font-size:0.88rem;color:var(--text);line-height:1.6;}
+  .dark-section{background:rgba(249,115,22,0.03);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+  .tech-tags{display:flex;flex-wrap:wrap;gap:10px;}
+  .tech-tag{background:rgba(249,115,22,0.08);border:1px solid var(--border);padding:8px 18px;border-radius:100px;font-size:0.83rem;}
+  .dev-box{display:flex;align-items:center;gap:24px;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px;flex-wrap:wrap;}
+  .dev-avatar{width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--yellow));display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:#000;flex-shrink:0;}
+  .dev-name{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;}
+  .dev-role{color:var(--muted);font-size:0.85rem;margin:4px 0 12px;}
+  .dev-links{display:flex;gap:10px;flex-wrap:wrap;}
+  .dev-link{color:var(--orange);text-decoration:none;font-size:0.82rem;border:1px solid var(--border);padding:5px 14px;border-radius:100px;transition:all 0.3s;}
+  .dev-link:hover{background:rgba(249,115,22,0.1);}
+  footer{text-align:center;padding:40px;border-top:1px solid var(--border);color:var(--muted);font-size:0.8rem;}
+</style>
+</head>
+<body>
+<a href="https://shiav321.github.io" class="back-link">← Back to Portfolio</a>
+<div class="hero">
+  <div>
+    <div class="badge">🌱 Healthcare AI · Rural Impact</div>
+    <h1>Pesticide Poisoning<br><span class="accent">Diagnosis System</span></h1>
+    <p class="subtitle">An AI-powered diagnostic pipeline detecting pesticide poisoning in rural agricultural workers with 98% accuracy — enabling timely, affordable care.</p>
+    <div class="metrics">
+      <div><div class="metric-val">98%</div><div class="metric-lbl">Accuracy</div></div>
+      <div><div class="metric-val">1,027</div><div class="metric-lbl">Clinical Samples</div></div>
+      <div><div class="metric-val">DRC-SML</div><div class="metric-lbl">Algorithm</div></div>
+    </div>
+    <div class="cta-row">
+      <a href="https://github.com/shiav321/Analysis-on-pesticides-poisoning-" target="_blank" class="btn-p">View Code on GitHub</a>
+      <a href="https://shiav321.github.io" class="btn-o">My Portfolio</a>
+    </div>
+  </div>
+</div>
+<section>
+  <div class="sec-label">Social Impact</div>
+  <div class="sec-title">Why This Project Exists</div>
+  <div class="impact-grid">
+    <div class="impact-card"><div class="impact-icon">🌾</div><div class="impact-title">Rural Agricultural Workers</div><div class="impact-desc">Millions of Indian farmers exposed to toxic pesticides daily with no affordable diagnostic access.</div></div>
+    <div class="impact-card"><div class="impact-icon">⏱️</div><div class="impact-title">Faster Diagnosis</div><div class="impact-desc">Reduces diagnosis time from days to seconds — critical in poisoning emergencies.</div></div>
+    <div class="impact-card"><div class="impact-icon">💰</div><div class="impact-title">Affordable Care</div><div class="impact-desc">Eliminates need for expensive lab tests — AI inference replaces hours of clinical work.</div></div>
+    <div class="impact-card"><div class="impact-icon">🏥</div><div class="impact-title">Clinic Ready</div><div class="impact-desc">Designed for low-resource settings with minimal infrastructure requirements.</div></div>
+  </div>
+</section>
+<section class="dark-section">
+  <div class="sec-label">Core Algorithm</div>
+  <div class="sec-title">The DRC-SML Approach</div>
+  <div class="algo-box">
+    <div class="algo-title">Dynamic Rule-based Classification with Supervised ML</div>
+    <div class="algo-parts">
+      <div class="algo-part"><div class="algo-dot"></div><div class="algo-part-text"><strong>Rule-based layer</strong> — medical expert rules filter obvious cases and reduce noise first</div></div>
+      <div class="algo-part"><div class="algo-dot"></div><div class="algo-part-text"><strong>Supervised ML layer</strong> — trained classifier handles complex borderline cases</div></div>
+      <div class="algo-part"><div class="algo-dot"></div><div class="algo-part-text"><strong>Dynamic thresholding</strong> — adapts classification boundaries based on symptom patterns</div></div>
+      <div class="algo-part"><div class="algo-dot"></div><div class="algo-part-text"><strong>Result</strong> — 98% accuracy on 1,027 samples, outperforming all standard ML models</div></div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="sec-label">Stack</div>
+  <div class="sec-title">Tech Used</div>
+  <div class="tech-tags">
+    <span class="tech-tag">Python</span><span class="tech-tag">Scikit-learn</span><span class="tech-tag">Pandas</span>
+    <span class="tech-tag">NumPy</span><span class="tech-tag">DRC-SML Algorithm</span><span class="tech-tag">Matplotlib</span><span class="tech-tag">Jupyter Notebook</span>
+  </div>
+</section>
+<section class="dark-section">
+  <div class="sec-label">Developer</div>
+  <div class="sec-title">Built By</div>
+  <div class="dev-box">
+    <div class="dev-avatar">SK</div>
+    <div>
+      <div class="dev-name">Shiva Keshava</div>
+      <div class="dev-role">Data Scientist & ML Engineer · B.Tech AI & Data Science (Final Year Project)</div>
+      <div class="dev-links">
+        <a href="https://linkedin.com/in/shiva-keshava-b71355364" target="_blank" class="dev-link">LinkedIn</a>
+        <a href="https://github.com/shiav321" target="_blank" class="dev-link">GitHub</a>
+        <a href="https://shiav321.github.io" class="dev-link">Portfolio</a>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>© 2025 Shiva Keshava · Pesticide Poisoning Diagnosis · <a href="https://shiav321.github.io" style="color:var(--orange)">shiav321.github.io</a></footer>
+</body>
+</html>
